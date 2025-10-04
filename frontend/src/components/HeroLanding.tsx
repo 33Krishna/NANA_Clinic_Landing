@@ -6,30 +6,30 @@ import Carousel from "./Carousel";
 const HeroLanding = () => {
   // Carousel images
   const carousel1Images = [
-    "/images/about-7.jpg",
-    "/images/Ear-machine-1.jpg",
-    "/images/Ear-machine-5.jpg",
-    "/images/Ear-machine-7.jpg",
-    "/images/Ear-machine-8.jpg",
-  ];
-  
-  const carousel2Images = [
-    "/images/about-4.jpg",
-    "/images/about-3.jpg",
-    "/images/Ear-machine-10.jpg",
-    "/images/Ear-machine-9.jpg",
-    "/images/Ear-machine-18.jpg",
-    "/images/Ear-machine-17.jpg",
-    "/images/Ear-machine-22.jpg",
-    "/images/Ear-machine-21.jpg",
-  ];
-  
-  const carousel3Images = [
-    "/images/Ear-machine-2.jpg",
     "/images/Ear-machine-4.jpg",
-    "/images/Ear-machine-12.jpg",
-    "/images/Ear-machine-15.jpg",
+    "/images/Ear-machine-5.jpg",
+    "/images/Ear-machine-10.jpg",
+    "/images/Ear-machine-24.jpg",
+    "/images/about-7.jpg",
   ];
+  
+  // const carousel2Images = [
+  //   "/images/about-4.jpg",
+  //   "/images/about-3.jpg",
+  //   "/images/Ear-machine-10.jpg",
+  //   "/images/Ear-machine-9.jpg",
+  //   "/images/Ear-machine-18.jpg",
+  //   "/images/Ear-machine-17.jpg",
+  //   "/images/Ear-machine-22.jpg",
+  //   "/images/Ear-machine-21.jpg",
+  // ];
+  
+  // const carousel3Images = [
+  //   "/images/Ear-machine-2.jpg",
+  //   "/images/Ear-machine-4.jpg",
+  //   "/images/Ear-machine-12.jpg",
+  //   "/images/Ear-machine-15.jpg",
+  // ];
 
   return (
     <section id="services" className="pt-24 pb-2 overflow-hidden">
@@ -93,7 +93,7 @@ const HeroLanding = () => {
             </Carousel>
           </div>
           
-          <div className="reveal" style={{ transitionDelay: "300ms" }}>
+          {/* <div className="reveal" style={{ transitionDelay: "300ms" }}>
             <Carousel autoslideInterval={4000}>
               {carousel2Images.map((src, index) => (
                 <img 
@@ -104,9 +104,9 @@ const HeroLanding = () => {
                 />
               ))}
             </Carousel>
-          </div>
+          </div> */}
           
-          <div className="reveal" style={{ transitionDelay: "400ms" }}>
+          {/* <div className="reveal" style={{ transitionDelay: "400ms" }}>
             <Carousel autoslideInterval={4000}>
               {carousel3Images.map((src, index) => (
                 <img 
@@ -117,7 +117,7 @@ const HeroLanding = () => {
                 />
               ))}
             </Carousel>
-          </div>
+          </div> */}
         </div>
 
       </div>

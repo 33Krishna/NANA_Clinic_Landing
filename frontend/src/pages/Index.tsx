@@ -3,12 +3,14 @@ import { Toaster } from "@/components/ui/toaster";
 import ScrollToTop from '@/components/ScrollToTop';
 import Navbar from '@/components/Navbar';
 import HeroLanding from '@/components/HeroLanding';
+import DiscountAndFeatures from '@/components/DiscountAndFeatures';
 import AppointmentForm from '@/components/AppointmentForm';
 import Footer from '@/components/Footer';
 import ActionButtons from '@/components/ActionButtons';
 import FacebookPixel from '@/components/FacebookPixel';
 import ProcessCards from '@/components/ProcessCards';
-import PriceSticker from '@/components/PriceSticker';
+import HearingAidsTypes from '@/components/HearingAidsTypes';
+import BrandSlider from '@/components/BrandSlider';
 
 const Index = () => {
 
@@ -44,8 +46,11 @@ const Index = () => {
       {/* <PriceSticker /> */}
       <Navbar />
       <HeroLanding />
+      <DiscountAndFeatures />
       <AppointmentForm />
+      <BrandSlider />
       <ProcessCards />
+      <HearingAidsTypes />
       <Footer />
       <ActionButtons />
       <Toaster />
