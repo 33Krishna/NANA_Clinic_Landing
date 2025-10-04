@@ -4,7 +4,7 @@ import Phonak from '/images/Brands/Phonak.jpg'
 import ReSound from '/images/Brands/ReSound.jpg'
 import Unitron from '/images/Brands/Unitron.jpg'
 import Widex from '/images/Brands/Widex.jpg'
-import AuthorisedPartner from '/images/Brands/AuthorisedPartner.jpg'
+import AuthorisedPartner from '/images/Brands/AuthorisedPartner.png'
 
 
 const BrandSlider = () => {
