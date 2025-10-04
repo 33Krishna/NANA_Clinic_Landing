@@ -11,6 +11,7 @@ import FacebookPixel from '@/components/FacebookPixel';
 import ProcessCards from '@/components/ProcessCards';
 import HearingAidsTypes from '@/components/HearingAidsTypes';
 import BrandSlider from '@/components/BrandSlider';
+import Schedule from '@/components/Schedule';
 
 const Index = () => {
 
@@ -51,6 +52,7 @@ const Index = () => {
       <BrandSlider />
       <ProcessCards />
       <HearingAidsTypes />
+      <Schedule />
       <Footer />
       <ActionButtons />
       <Toaster />

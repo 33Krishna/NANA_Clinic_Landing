@@ -40,29 +40,13 @@ const DiscountAndFeatures = () => {
           </div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 reveal"
-              style={{ transitionDelay: feature.delay }}
-            >
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full bg-clinic-muted flex items-center justify-center flex-shrink-0">
-                  <IoMdCheckmarkCircle className="h-6 w-6 text-clinic-primary" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-clinic-accent text-lg mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Discount Banner Image */}
+        <div className="text-center reveal" style={{ transitionDelay: "200ms" }}>
+          <img
+            src="/images/Brands/discount banner.jpg"
+            alt="NANA Speech & Hearing Clinic - Better Hearing, Better Life"
+            className="max-w-full h-auto rounded-2xl shadow-2xl mx-auto"
+          />
         </div>
       </div>
     </section>
