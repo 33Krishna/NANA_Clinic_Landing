@@ -5,43 +5,43 @@ const HearingAidsTypes = () => {
     {
       title: "Behind the Ear (BTE)",
       description: "Big in size. Usually prescribed to patients having high percentage of hearing loss & in severe to profound hearing loss. Support till 120 dBHL of hearing loss.",
-      icon: "👂",
+      image: "/images/Ear-machine-1.jpg",
       delay: "100ms"
     },
     {
       title: "Receiver in Canal (RIC)",
       description: "Almost invisible type hearing aid. This is the best hearing aid among all types giving best clarity of sound. Support till 115 dBHL of hearing loss.",
-      icon: "🔊",
+      image: "/images/Ear-machine-2.jpg",
       delay: "200ms"
     },
     {
       title: "Completely in Canal (CIC)",
       description: "Smallest hearing aid of all types. Works in mild to moderate hearing loss. Support till 55-60 dBHL of hearing loss.",
-      icon: "🔇",
+      image: "/images/Ear-machine-3.jpg",
       delay: "300ms"
     },
     {
       title: "Invisible in Canal (IIC)",
       description: "Smaller than CIC. Only covers very minimal & mild type hearing loss. Support till 40-50 dBHL.",
-      icon: "🎯",
+      image: "/images/Ear-machine-4.jpg",
       delay: "400ms"
     },
     {
       title: "Rechargeable Hearing Aid",
       description: "No need to change battery. This type hearing aid are charging type comes with its portable charger. Some of having powerbank charger. This type of hearing aids are dustproof & water resistant.",
-      icon: "🔋",
+      image: "/images/Ear-machine-5.jpg",
       delay: "100ms"
     },
     {
       title: "Bluetooth Hearing Aid",
       description: "Having bluetooth connectivity with phone. Patient can streams call & music simultaneously while listening to conversation.",
-      icon: "📱",
+      image: "/images/Ear-machine-7.jpg",
       delay: "200ms"
     },
     {
       title: "Waterproof Hearing Aid",
       description: "Some hearing aids are waterproof technology. With IP67 & IP68 rating in some brands of hearing aids.",
-      icon: "💧",
+      image: "/images/Ear-machine-1.jpg",
       delay: "300ms"
     }
   ];
@@ -71,20 +71,22 @@ const HearingAidsTypes = () => {
           {hearingAidTypes.map((type, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-clinic-secondary to-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 reveal border border-clinic-muted/20"
+              className="card-modern reveal"
               style={{ transitionDelay: type.delay }}
             >
-              <div className="text-center mb-4">
-                <div className="w-16 h-16 bg-clinic-muted rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">{type.icon}</span>
-                </div>
-                <h3 className="text-xl font-bold text-clinic-accent mb-3">
-                  {type.title}
-                </h3>
+              <div className="relative overflow-hidden h-60">
+                <img
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  src={type.image}
+                  alt={type.title}
+                />
               </div>
-              <p className="text-gray-700 leading-relaxed text-sm">
-                {type.description}
-              </p>
+              <div className="p-6 text-center">
+                <h4 className="mb-2 text-xl font-semibold text-clinic-accent">
+                  {type.title}
+                </h4>
+                <p className="text-slate-600">{type.description}</p>
+              </div>
             </div>
           ))}
         </div>
