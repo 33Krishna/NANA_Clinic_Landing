@@ -29,12 +29,8 @@ const BrandSlider = () => {
                 <img src={Signia} alt="Signia Logo" />                        
             </a>
             <a href="#" className="flex justify-center items-center">
-                <img src={Oticon} alt="Oticon Logo" />                                             
-            </a>
-            <a href="#" className="flex justify-center items-center">
                 <img src={Phonak} alt="Phonak Logo" />                                                                 
             </a>
-
             <a href="#" className="flex justify-center items-center">
                 <img src={ReSound} alt="ReSound Logo" />                                                                                   
             </a>
@@ -43,6 +39,9 @@ const BrandSlider = () => {
             </a>
             <a href="#" className="flex justify-center items-center">
                 <img src={Widex} alt="Widex Logo" />                                                                                    
+            </a>
+            <a href="#" className="flex justify-center items-center">
+                <img src={Oticon} alt="Oticon Logo" />                                             
             </a>
         </div>
     </div>

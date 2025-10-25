@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FacebookPixel from "./components/FacebookPixel";
+import SubmitPage from "./pages/SubmitPage";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/submitPage" element={<SubmitPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

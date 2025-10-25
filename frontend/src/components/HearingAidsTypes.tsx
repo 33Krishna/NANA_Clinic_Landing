@@ -5,43 +5,43 @@ const HearingAidsTypes = () => {
     {
       title: "Behind the Ear (BTE)",
       description: "Big in size. Usually prescribed to patients having high percentage of hearing loss & in severe to profound hearing loss. Support till 120 dBHL of hearing loss.",
-      image: "/images/Ear-machine-1.jpg",
+      image: "/images/Ear-machine-2.jpg",
       delay: "100ms"
     },
     {
       title: "Receiver in Canal (RIC)",
       description: "Almost invisible type hearing aid. This is the best hearing aid among all types giving best clarity of sound. Support till 115 dBHL of hearing loss.",
-      image: "/images/Ear-machine-2.jpg",
+      image: "/images/Ear-machine-4.jpg",
       delay: "200ms"
     },
     {
       title: "Completely in Canal (CIC)",
       description: "Smallest hearing aid of all types. Works in mild to moderate hearing loss. Support till 55-60 dBHL of hearing loss.",
-      image: "/images/Ear-machine-3.jpg",
+      image: "/images/Ear-machine-1.jpg",
       delay: "300ms"
     },
     {
       title: "Invisible in Canal (IIC)",
       description: "Smaller than CIC. Only covers very minimal & mild type hearing loss. Support till 40-50 dBHL.",
-      image: "/images/Ear-machine-4.jpg",
+      image: "/images/Ear-machine-5.jpg",
       delay: "400ms"
     },
     {
       title: "Rechargeable Hearing Aid",
       description: "No need to change battery. This type hearing aid are charging type comes with its portable charger. Some of having powerbank charger. This type of hearing aids are dustproof & water resistant.",
-      image: "/images/Ear-machine-5.jpg",
+      image: "/images/Ear-machine-7.jpg",
       delay: "100ms"
     },
     {
       title: "Bluetooth Hearing Aid",
       description: "Having bluetooth connectivity with phone. Patient can streams call & music simultaneously while listening to conversation.",
-      image: "/images/Ear-machine-7.jpg",
+      image: "/images/BluetoothHearingAid.jpg",
       delay: "200ms"
     },
     {
       title: "Waterproof Hearing Aid",
       description: "Some hearing aids are waterproof technology. With IP67 & IP68 rating in some brands of hearing aids.",
-      image: "/images/Ear-machine-1.jpg",
+      image: "/images/waterProofAid.jpg",
       delay: "300ms"
     }
   ];
