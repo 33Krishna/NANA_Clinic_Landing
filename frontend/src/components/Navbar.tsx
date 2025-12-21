@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import logo from '/images/Logo.png-removebg.png'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +43,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="#" className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-clinic-accent">
-                <img src="/images/Logo.png-removebg.png" className='w-20 h-20' alt="logo" />
+                <img src={logo} className='w-20 h-20' alt="logo" />
               </span>
             </a>
           </div>
