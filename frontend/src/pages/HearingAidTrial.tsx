@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface Product {
@@ -22,8 +23,6 @@ interface Company {
 }
 
 const HearingAidTrial = () => {
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
   const companies: Company[] = [
     {
       name: 'SIGNIA',
@@ -155,90 +154,88 @@ const HearingAidTrial = () => {
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Explore our wide range of hearing aids from leading manufacturers. 
-              Click on any company logo to view their products.
+              Click on any company to view their products.
             </p>
           </div>
 
-          {/* Companies Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 mb-12">
-            {companies.map((company) => (
-              <DropdownMenu
-                key={company.name}
-                open={openDropdown === company.name}
-                onOpenChange={(open) =>
-                  setOpenDropdown(open ? company.name : null)
-                }
-              >
-                <DropdownMenuTrigger asChild>
-                  <button className="group relative w-full aspect-square bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-4 flex items-center justify-center hover:scale-105 focus:outline-none focus:ring-2 focus:ring-clinic-primary">
-                    <img
-                      src={company.logo}
-                      alt={company.name}
-                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = '/placeholder.svg';
-                      }}
-                    />
-                    <div className="absolute bottom-2 left-0 right-0">
-                      <p className="text-xs font-semibold text-clinic-accent bg-white/90 px-2 py-1 rounded">
-                        {company.name}
-                      </p>
-                    </div>
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align="center"
-                  sideOffset={8}
-                  className="w-[90vw] max-w-md bg-white shadow-xl max-h-[85vh] overflow-hidden flex flex-col"
+          {/* FAQ Style Accordion */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <Accordion type="single" collapsible className="w-full">
+              {companies.map((company, companyIndex) => (
+                <AccordionItem
+                  key={company.name}
+                  value={`company-${companyIndex}`}
+                  className="bg-white rounded-lg shadow-md border border-gray-200 px-4 md:px-6 overflow-hidden hover:shadow-lg transition-shadow mb-4 last:mb-0"
                 >
-                  <div className="p-4 pb-2 border-b border-gray-200 flex-shrink-0">
-                    <h3 className="text-xl font-bold text-clinic-accent text-center">
-                      {company.name} Products
-                    </h3>
-                  </div>
-                  <div
-                    className="flex-1 px-4 py-4 max-h-[70vh] overflow-y-auto"
-                    style={{ overscrollBehavior: 'contain' }}
-                  >
-                    <div className="grid gap-3 pb-2">
-                      {company.products.map((product, index) => (
-                        <Card
-                          key={index}
-                          className="border border-gray-200 hover:border-clinic-primary transition-colors"
-                        >
-                          <CardContent className="p-3 sm:p-4">
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                              {product.image && (
-                                <div className="w-full sm:w-24 sm:h-24 h-32 flex-shrink-0 mx-auto sm:mx-0">
-                                  <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="w-full h-full object-contain rounded"
-                                    onError={(e) => {
-                                      const target = e.target as HTMLImageElement;
-                                      target.src = '/placeholder.svg';
-                                    }}
-                                  />
-                                </div>
-                              )}
-                              <div className="flex-1 text-center sm:text-left">
-                                <h4 className="font-semibold text-clinic-accent text-base sm:text-lg">
-                                  {product.name}
-                                </h4>
-                                <p className="text-sm text-gray-600 mt-1">
-                                  {product.priceRange}
-                                </p>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      ))}
+                  <AccordionTrigger className="hover:no-underline py-4 md:py-6">
+                    <div className="flex items-center gap-4 md:gap-6 w-full">
+                      {/* Company Logo */}
+                      <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-white rounded-lg p-2 border border-gray-100">
+                        <img
+                          src={company.logo}
+                          alt={company.name}
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = '/placeholder.svg';
+                          }}
+                        />
+                      </div>
+                      {/* Company Name */}
+                      <div className="flex-1 text-left">
+                        <h3 className="text-lg md:text-xl font-bold text-clinic-accent">
+                          {company.name}
+                        </h3>
+                        <p className="text-sm text-gray-500 mt-1">
+                          {company.products.length} product{company.products.length !== 1 ? 's' : ''} available
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ))}
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-0 pb-4 md:pb-6">
+                    <div className="mt-4 border-t border-gray-200 pt-4 md:pt-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                        {company.products.map((product, productIndex) => (
+                          <Card
+                            key={productIndex}
+                            className="border border-gray-200 hover:border-clinic-primary hover:shadow-md transition-all duration-300"
+                          >
+                            <CardContent className="p-4 md:p-5">
+                              <div className="flex flex-col items-center text-center space-y-3">
+                                {/* Product Image */}
+                                {product.image && (
+                                  <div className="w-full h-40 md:h-48 bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
+                                    <img
+                                      src={product.image}
+                                      alt={product.name}
+                                      className="w-full h-full object-contain p-2"
+                                      onError={(e) => {
+                                        const target = e.target as HTMLImageElement;
+                                        target.src = '/placeholder.svg';
+                                      }}
+                                    />
+                                  </div>
+                                )}
+                                {/* Product Name */}
+                                <div className="w-full">
+                                  <h4 className="font-semibold text-clinic-accent text-base md:text-lg mb-2">
+                                    {product.name}
+                                  </h4>
+                                  {/* Product Price */}
+                                  <p className="text-sm md:text-base font-medium text-gray-700">
+                                    {product.priceRange || product.price || 'Price on request'}
+                                  </p>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
 
           {/* Additional Info Section */}
