@@ -138,7 +138,7 @@ const HearingAidTrial = () => {
       <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-12 reveal">
+          <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-clinic-accent mb-4">
               Hearing Aid Trial
             </h1>
@@ -177,7 +177,7 @@ const HearingAidTrial = () => {
                           {company.name}
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
-                          {company.products.length} product{company.products.length !== 1 ? 's' : ''} available
+                          View Products
                         </p>
                       </div>
                     </div>
@@ -194,7 +194,7 @@ const HearingAidTrial = () => {
                               <div className="flex flex-col items-center text-center space-y-3">
                                 {/* Product Image */}
                                 {product.image && (
-                                  <div className="w-full h-40 md:h-48 bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
+                                  <div className="w-full h-56 md:h-48 bg-gray-50 rounded-lg overflow-hidden flex items-center justify-center">
                                     <img
                                       src={product.image}
                                       alt={product.name}
@@ -229,7 +229,7 @@ const HearingAidTrial = () => {
           </div>
 
           {/* Additional Info Section */}
-          <div className="mt-16 bg-white rounded-lg shadow-md p-6 md:p-8 reveal">
+          <div className="mt-16 bg-white rounded-lg shadow-md p-6 md:p-8">
             <h2 className="text-2xl font-bold text-clinic-accent mb-4 text-center">
               Why Choose Our Hearing Aids?
             </h2>
