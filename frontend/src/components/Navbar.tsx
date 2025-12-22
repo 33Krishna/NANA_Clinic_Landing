@@ -17,12 +17,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home", type: "hash" },
+    { name: "Home", href: "/", type: "route" },
+    { name: "Hearing Aid", href: "/hearingAidTrial", type: "route" },
     { name: "Services", href: "#services", type: "hash" },
     { name: "About", href: "#about", type: "hash" },
     { name: "Testimonials", href: "#testimonials", type: "hash" },
     { name: "Contact", href: "#contact", type: "hash" },
-    { name: "Hearing Aid", href: "/hearingAidTrial", type: "route" },
   ];
 
   return (
@@ -37,13 +37,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-3 lg:px-5">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <img
               src="/images/Logo.png-removebg.png"
               className="w-20 h-20"
               alt="logo"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">

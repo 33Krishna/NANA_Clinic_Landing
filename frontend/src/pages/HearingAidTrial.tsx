@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Card, CardContent } from '@/components/ui/card';
+import ActionButtons from '@/components/ActionButtons';
 
 interface Product {
   name: string;
@@ -93,6 +94,22 @@ const HearingAidTrial = () => {
       ],
     },
     {
+      name: 'WIDEX',
+      logo: '/images/Brands/Widex.jpg',
+      products: [
+        {
+          name: 'Moment sheer',
+          priceRange: '₹1,45,000 - ₹7,00,000',
+          image: '/images/Products/Moment_sheer.jpeg',
+        },
+        {
+          name: 'Magnify',
+          priceRange: '₹1,55,000 - ₹7,50,000',
+          image: '/images/Products/Moment_smart_RIC.jpeg',
+        },
+      ],
+    },
+    {
       name: 'UNITRON',
       logo: '/images/Brands/Unitron.jpg',
       products: [
@@ -110,22 +127,6 @@ const HearingAidTrial = () => {
           name: 'Stride',
           priceRange: 'Price on request',
           image: '/images/Products/Stride.jpeg',
-        },
-      ],
-    },
-    {
-      name: 'WIDEX',
-      logo: '/images/Brands/Widex.jpg',
-      products: [
-        {
-          name: 'Moment sheer',
-          priceRange: '₹1,45,000 - ₹7,00,000',
-          image: '/images/Products/Moment_sheer.jpeg',
-        },
-        {
-          name: 'Magnify',
-          priceRange: '₹1,55,000 - ₹7,50,000',
-          image: '/images/Products/Moment_smart_RIC.jpeg',
         },
       ],
     },
@@ -309,6 +310,7 @@ const HearingAidTrial = () => {
       </div>
 
       <Footer />
+      <ActionButtons />
     </div>
   );
 };
