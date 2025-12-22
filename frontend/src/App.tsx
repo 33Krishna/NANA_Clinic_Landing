@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import FacebookPixel from "./components/FacebookPixel";
 import SubmitPage from "./pages/SubmitPage";
+import HearingAidTrial from "./pages/HearingAidTrial";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/submitPage" element={<SubmitPage />} />
+          <Route path="/hearingAidTrial" element={<HearingAidTrial />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
