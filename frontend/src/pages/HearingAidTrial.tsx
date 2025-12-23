@@ -115,18 +115,13 @@ const HearingAidTrial = () => {
       products: [
         {
           name: 'Moxi',
-          priceRange: 'Price on request',
-          image: '/images/Products/Moxi.jpeg',
+          priceRange: '53,500 - 2,70,000',
+          image: '/images/Products/Moxi_V.jpeg',
         },
         {
           name: 'Ativo',
-          priceRange: 'Price on request',
+          priceRange: '35000',
           image: '/images/Products/Ativo.jpeg',
-        },
-        {
-          name: 'Stride',
-          priceRange: 'Price on request',
-          image: '/images/Products/Stride.jpeg',
         },
       ],
     },
