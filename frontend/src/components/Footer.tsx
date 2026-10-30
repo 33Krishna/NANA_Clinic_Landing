@@ -9,19 +9,19 @@ const Footer = () => {
   const branches = [
     {
       city: "Bhubaneswar",
-      title: "Bhubaneswar Branch",
+      title: "Bhubaneswar",
       address:
         "1st Floor, 772, Infront of Maharshi College, Saheed Nagar, Bhubaneswar, Odisha 751007",
     },
     {
       city: "Cuttack",
-      title: "Cuttack Branch",
+      title: "Cuttack",
       address:
         "1st floor, Near UCO Bank ATM, Kathagola road, Mangalabag, Cuttack, Odisha 753001",
     },
     {
-      city: "Duburi",
-      title: "Duburi Branch",
+      city: "Jajpur",
+      title: "Jajpur",
       address:
         "Laxmi Bhandar, Duburi Rd, Near Bharat petrol pump, Duburi, Jajpur, Odisha 755026",
     },
@@ -278,7 +278,7 @@ const Footer = () => {
         <div className="border-t border-gray-300 mt-12 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm">
-              &copy; {new Date().getFullYear()} NANA Hearing Clinic. All rights
+              &copy; {new Date().getFullYear()} NANA Speech & Hearing Clinic. All rights
               reserved.
             </p>
             <div className="mt-4 sm:mt-0">
