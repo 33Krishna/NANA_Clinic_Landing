@@ -1,9 +1,7 @@
-
 import React, { useState, useEffect, useRef } from "react";
-import { IoCallOutline } from "react-icons/io5";
-import { MdOutlineEmail } from "react-icons/md";
-import { IoTimeOutline } from "react-icons/io5";
 
+// Clinic WhatsApp Number
+const CLINIC_WHATSAPP_NUMBER = "917205454269";
 
 // Tracking functions
 const trackFormSubmission = () => {
@@ -101,49 +99,36 @@ const AppointmentForm = () => {
     }
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     setIsSubmitting(true);
     setFormStatus({ type: null, message: "" });
 
-    const submissionData = {
-      name: formData.name,
-      mobile: formData.mobile,
-      explanation: formData.problem,
-      address: formData.address,
-    };
-
     try {
       trackFormStarted();
-      
-      const response = await fetch(
-        "https://nana-clinic-landing-prateek2.vercel.app/send-email",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(submissionData),
-        }
-      );
-      
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        const errorMessage = errorData.error || `HTTP error! status: ${response.status}`;
-        trackFormError(errorMessage);
-        throw new Error(errorMessage);
+
+      const message = `Name: ${formData.name}\nMobile no.: ${formData.mobile}\nLocation: ${formData.address}\nProblem: ${formData.problem}`;
+      const whatsappUrl = `https://wa.me/${CLINIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+      trackFormSubmission();
+
+      // Open WhatsApp in a new tab / application
+      const win = window.open(whatsappUrl, "_blank");
+      if (!win) {
+        window.location.href = whatsappUrl;
       }
 
-      await response.json();
-      trackFormSubmission();
-      
       setFormStatus({
         type: "success",
-        message: "Your appointment request has been submitted successfully!",
+        message: "Redirecting to WhatsApp to send your details...",
       });
       setFormData({ name: "", mobile: "", problem: "", address: "" });
-    } catch (error) {
+    } catch (error: any) {
+      const errorMessage = error?.message || "There was an error redirecting to WhatsApp.";
+      trackFormError(errorMessage);
       setFormStatus({
         type: "error",
-        message: error.message || "There was an error submitting your request.",
+        message: errorMessage,
       });
     } finally {
       setIsSubmitting(false);
@@ -152,7 +137,7 @@ const AppointmentForm = () => {
 
   return (
     <>
-      <section id="appointment" className="py-1 bg-white" ref={sectionRef}>
+      <section id="appointment" className="py-1 bg-white scroll-mt-20" ref={sectionRef}>
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form */}

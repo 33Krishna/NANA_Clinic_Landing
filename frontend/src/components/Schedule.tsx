@@ -3,7 +3,7 @@ import { MdOutlineEmail } from "react-icons/md";
 
 const Schedule = () => {
     return (
-        <div className="px-6">
+        <div id="contact" className="px-6 scroll-mt-24">
             {/* Clinic Details */}
             <div className="space-y-6">
               <span className="inline-block px-4 py-1.5 bg-clinic-muted text-clinic-primary rounded-full text-sm font-medium reveal">

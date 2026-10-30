@@ -94,7 +94,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-clinic-secondary" ref={sectionRef}>
+    <section id="testimonials" className="py-20 bg-clinic-secondary scroll-mt-20" ref={sectionRef}>
       <div className="section-container">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 bg-clinic-muted text-clinic-primary rounded-full text-sm font-medium reveal">Testimonials</span>

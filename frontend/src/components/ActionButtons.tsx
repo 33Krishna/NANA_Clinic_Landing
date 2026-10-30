@@ -1,29 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Phone } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { FaWhatsapp } from "react-icons/fa";
 
 const ActionButtons = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const { toast } = useToast();
-
-  useEffect(() => {
-    // Show buttons immediately on mobile devices
-    if (window.innerWidth < 768) {
-      setIsVisible(true);
-    } else {
-      const handleScroll = () => {
-        if (window.scrollY > 300) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }
-  }, []);
 
   const openWhatsApp = () => {
     toast({
@@ -31,7 +12,10 @@ const ActionButtons = () => {
       description: "Connecting you with our support team...",
       duration: 2000,
     });
-    window.open(`https://wa.me/917205454269?text=${encodeURIComponent('Hello, I would like to book an appointment.')}`, '_blank');
+    window.open(
+      `https://wa.me/917205454269?text=${encodeURIComponent('Hello, I would like to book an appointment.')}`,
+      '_blank'
+    );
   };
 
   const callClinic = () => {
@@ -40,39 +24,32 @@ const ActionButtons = () => {
       description: "Connecting you to +917205454269",
       duration: 2000,
     });
-    window.location.href = 'tel:+917205454269';
   };
 
   return (
-    <div
-      className={`fixed right-6 bottom-28 flex flex-col space-y-4 z-40 transition-all duration-500 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-      style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
-    >
-      {/* WhatsApp Button */}
-      <button
-        onClick={openWhatsApp}
-        className="flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 group bg-green-500 hover:bg-green-600 focus:ring-green-500 hover:shadow-green-400/50"
-        aria-label="Contact on WhatsApp"
-      >
-        <FaWhatsapp className="w-6 h-6 animate-float text-white" />
-        <span className="absolute right-16 bg-white text-gray-800 px-3 py-1 rounded shadow-md text-sm font-medium opacity-0 transition-opacity duration-300 whitespace-nowrap group-hover:opacity-100">
-          WhatsApp
-        </span>
-      </button>
+    <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-2.5 px-4 sm:px-6 shadow-[0_-4px_16px_rgba(0,0,0,0.08)]">
+      <div className="max-w-xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
+        {/* Left: Call Button (Rectangular) */}
+        <a
+          href="tel:+917205454269"
+          onClick={callClinic}
+          className="flex-1 flex items-center justify-center gap-2.5 bg-clinic-primary hover:bg-clinic-accent text-white font-semibold py-3 px-4 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md active:scale-98 text-sm sm:text-base"
+          aria-label="Call the clinic"
+        >
+          <Phone className="w-5 h-5 text-white" />
+          <span>Call Us</span>
+        </a>
 
-      {/* Call Button */}
-      <button
-        onClick={callClinic}
-        className="flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 group bg-clinic-primary hover:bg-clinic-accent focus:ring-clinic-primary hover:shadow-clinic-primary/50"
-        aria-label="Call the clinic"
-      >
-        <Phone className="w-6 h-6 animate-float text-white" />
-        <span className="absolute right-16 bg-white text-gray-800 px-3 py-1 rounded shadow-md text-sm font-medium opacity-0 transition-opacity duration-300 whitespace-nowrap group-hover:opacity-100">
-          Call Us
-        </span>
-      </button>
+        {/* Right: WhatsApp Button (Rectangular) */}
+        <button
+          onClick={openWhatsApp}
+          className="flex-1 flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold py-3 px-4 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md active:scale-98 text-sm sm:text-base"
+          aria-label="Contact on WhatsApp"
+        >
+          <FaWhatsapp className="w-5 h-5 text-white" />
+          <span>WhatsApp</span>
+        </button>
+      </div>
     </div>
   );
 };

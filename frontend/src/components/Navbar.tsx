@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,33 @@ const Navbar = () => {
     { name: "Contact", href: "#contact", type: "hash" },
   ];
 
+  const handleHashClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    const targetId = href.replace("#", "");
+
+    if (location.pathname === "/") {
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate(`/${href}`);
+    }
+  };
+
+  const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setMobileMenuOpen(false);
+    if (location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <header
       className={cn(
@@ -38,10 +67,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-3 lg:px-5">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link
+            to="/"
+            onClick={handleHomeClick}
+            className="flex items-center space-x-2"
+          >
             <img
               src="/images/Logo.png-removebg.png"
-              className="w-20 h-20"
+              className="w-20 h-20 object-contain"
               alt="logo"
             />
           </Link>
@@ -53,6 +86,7 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.href}
+                  onClick={item.href === "/" ? handleHomeClick : () => setMobileMenuOpen(false)}
                   className="text-clinic-accent hover:text-clinic-primary font-medium transition-colors duration-300"
                 >
                   {item.name}
@@ -61,7 +95,8 @@ const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-clinic-accent hover:text-clinic-primary font-medium transition-colors duration-300"
+                  onClick={(e) => handleHashClick(e, item.href)}
+                  className="text-clinic-accent hover:text-clinic-primary font-medium transition-colors duration-300 cursor-pointer"
                 >
                   {item.name}
                 </a>
@@ -71,7 +106,11 @@ const Navbar = () => {
 
           {/* Book Appointment Button */}
           <div className="hidden md:block">
-            <a href="#appointment" className="button-primary">
+            <a
+              href="#appointment"
+              onClick={(e) => handleHashClick(e, "#appointment")}
+              className="button-primary cursor-pointer"
+            >
               Book Appointment
             </a>
           </div>
@@ -81,6 +120,7 @@ const Navbar = () => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-md text-clinic-accent hover:text-clinic-primary focus:outline-none"
+              aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -96,7 +136,7 @@ const Navbar = () => {
       <div
         className={cn(
           "absolute top-full left-0 right-0 bg-white shadow-lg md:hidden transition-all duration-300 overflow-hidden glass",
-          mobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          mobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         )}
       >
         <div className="px-4 pt-2 pb-6 space-y-4">
@@ -106,7 +146,7 @@ const Navbar = () => {
                 key={item.name}
                 to={item.href}
                 className="block py-2 text-clinic-accent hover:text-clinic-primary font-medium"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={item.href === "/" ? handleHomeClick : () => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
@@ -114,8 +154,8 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-clinic-accent hover:text-clinic-primary font-medium"
-                onClick={() => setMobileMenuOpen(false)}
+                className="block py-2 text-clinic-accent hover:text-clinic-primary font-medium cursor-pointer"
+                onClick={(e) => handleHashClick(e, item.href)}
               >
                 {item.name}
               </a>
@@ -124,8 +164,8 @@ const Navbar = () => {
 
           <a
             href="#appointment"
-            className="block w-full text-center button-primary mt-4"
-            onClick={() => setMobileMenuOpen(false)}
+            className="block w-full text-center button-primary mt-4 cursor-pointer"
+            onClick={(e) => handleHashClick(e, "#appointment")}
           >
             Book Appointment
           </a>

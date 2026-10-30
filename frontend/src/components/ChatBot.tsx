@@ -102,7 +102,7 @@ const ChatBot = () => {
   return (
     <>
       {!isOpen && showTooltip && (
-        <div className="fixed bottom-24 right-4 z-50 animate-fade-in sm:right-6">
+        <div className="fixed bottom-36 right-4 z-50 animate-fade-in sm:right-6">
           <div className="relative rounded-xl bg-white p-3 shadow-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
             <p className="text-sm font-medium text-gray-800 dark:text-gray-100 whitespace-nowrap">
               👋 May I help you?
@@ -116,7 +116,7 @@ const ChatBot = () => {
       <button
         onClick={toggleChat}
         className={cn(
-          "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 overflow-hidden",
+          "fixed bottom-20 right-4 sm:right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 overflow-hidden",
           isOpen ? "bg-red-500 hover:bg-red-600" : "bg-clinic-primary hover:bg-clinic-accent"
         )}
         aria-label={isOpen ? "Close chat" : "Open chat"}
@@ -129,7 +129,7 @@ const ChatBot = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[350px] max-w-[calc(100vw-3rem)] overflow-hidden rounded-2xl bg-white shadow-2xl animate-fade-in border border-gray-100 flex flex-col h-[500px] max-h-[80vh]">
+        <div className="fixed bottom-36 right-4 sm:right-6 z-50 w-[350px] max-w-[calc(100vw-3rem)] overflow-hidden rounded-2xl bg-white shadow-2xl animate-fade-in border border-gray-100 flex flex-col h-[500px] max-h-[75vh]">
           {/* Header */}
           <div className="bg-clinic-primary p-4 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 overflow-hidden">

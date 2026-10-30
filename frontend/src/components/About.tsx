@@ -44,7 +44,7 @@ const About = () => {
   }, [images.length]);
 
   return (
-    <section id="about" className="py-20 bg-white" ref={sectionRef}>
+    <section id="about" className="py-20 bg-white scroll-mt-20" ref={sectionRef}>
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="relative reveal">

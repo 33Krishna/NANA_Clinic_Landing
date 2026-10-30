@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Toaster } from "@/components/ui/toaster";
-import ScrollToTop from '@/components/ScrollToTop';
 import Navbar from '@/components/Navbar';
 import HeroLanding from '@/components/HeroLanding';
 import DiscountAndFeatures from '@/components/DiscountAndFeatures';
@@ -12,8 +12,25 @@ import ProcessCards from '@/components/ProcessCards';
 import HearingAidsTypes from '@/components/HearingAidsTypes';
 import BrandSlider from '@/components/BrandSlider';
 import Schedule from '@/components/Schedule';
+import Services from '@/components/Services';
+import About from '@/components/About';
+import Testimonials from '@/components/Testimonials';
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
 
   useEffect(() => {
     // Activate reveal animations on scroll
@@ -43,8 +60,6 @@ const Index = () => {
   return (
     <div id="home" className="min-h-screen bg-gradient-to-b from-clinic-secondary via-white to-clinic-secondary">
       <FacebookPixel />
-      {/* <ScrollToTop /> */}
-      {/* <PriceSticker /> */}
       <Navbar />
       <HeroLanding />
       <DiscountAndFeatures />
@@ -52,6 +67,9 @@ const Index = () => {
       <BrandSlider />
       <ProcessCards />
       <HearingAidsTypes />
+      <Services />
+      <About />
+      <Testimonials />
       <Schedule />
       <Footer />
       <ActionButtons />
